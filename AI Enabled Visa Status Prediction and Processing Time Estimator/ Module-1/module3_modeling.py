@@ -178,21 +178,28 @@ def select_best_model(models, results):
 
 
 # ----------------------------------------------------------
-# 8. Save Model
+# 8. Save Model + Metadata (IMPORTANT)
 # ----------------------------------------------------------
-def save_model(model, output_folder):
+def save_all(model, feature_columns, rmse, output_folder):
 
     os.makedirs(output_folder, exist_ok=True)
 
-    model_path = os.path.join(
-        output_folder,
-        "visa_processing_time_model.pkl"
-    )
-
+    # Save model
+    model_path = os.path.join(output_folder, "visa_processing_time_model.pkl")
     joblib.dump(model, model_path)
 
-    print("\nModel saved successfully at:")
-    print(model_path)
+    # Save features
+    feature_path = os.path.join(output_folder, "model_features.pkl")
+    joblib.dump(feature_columns, feature_path)
+
+    # Save RMSE
+    rmse_path = os.path.join(output_folder, "model_rmse.pkl")
+    joblib.dump(rmse, rmse_path)
+
+    print("\nModel and metadata saved successfully!")
+    print("Model:", model_path)
+    print("Features:", feature_path)
+    print("RMSE:", rmse_path)
 
 
 # ----------------------------------------------------------
@@ -209,26 +216,34 @@ def main():
         "cleaned_h1b_data.csv"
     )
 
-    model_folder = os.path.join(
-        base_dir,
-        "models"
-    )
+    model_folder = os.path.join(base_dir, "models")
 
+    # Load data
     df = load_data(input_path)
 
+    # Encode
     df, encoders = encode_categorical(df)
 
+    # Prepare features
     X, y = prepare_features(df)
 
+    # Split
     X_train, X_test, y_train, y_test = split_data(X, y)
 
+    # Train
     models = train_models(X_train, y_train)
 
+    # Evaluate
     results = evaluate_models(models, X_test, y_test)
 
+    # Select best
     best_name, best_model = select_best_model(models, results)
 
-    save_model(best_model, model_folder)
+    # Get RMSE of best model
+    best_rmse = results[best_name]["RMSE"]
+
+    # Save everything
+    save_all(best_model, X.columns, best_rmse, model_folder)
 
     print("\nPredictive Modeling Completed Successfully!")
 
