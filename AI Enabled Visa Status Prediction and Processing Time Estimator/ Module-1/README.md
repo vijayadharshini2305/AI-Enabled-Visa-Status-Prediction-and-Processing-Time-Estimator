@@ -1,119 +1,165 @@
-# AI Enabled Visa Status Prediction and Processing Time Estimator
+# 🇺🇸 AI-Enabled Visa Status Prediction & Processing Time Estimator
 
-## 📌 About This Project
-
-This project focuses on building an AI-based system that can:
-
-• Predict whether a visa application will be approved or denied  
-• Estimate how many days the visa processing might take  
-
-The system is developed using historical H-1B visa application data from 2011 to 2018.  
-By analyzing past records, we aim to create intelligent models that can support decision-making in visa processing systems.
+An end-to-end Machine Learning project that predicts visa approval status and estimates processing time using historical H-1B visa data.
 
 ---
 
-## 🎯 Why This Project?
+## 📌 Project Overview
 
-Visa processing is often time-consuming and uncertain. Applicants often do not know:
+This project aims to:
 
-- Whether their visa will be approved  
-- How long the decision will take  
+- Predict whether a visa application will be **Approved or Denied**
+- Estimate the **processing time (in days)**
+- Demonstrate real-world application of Machine Learning
 
-This project applies machine learning techniques to:
+---
 
-- Improve prediction accuracy  
-- Provide estimated processing time  
-- Demonstrate how AI can assist in real-world administrative systems  
+## 🎯 Problem Statement
+
+Visa processing is often uncertain and time-consuming. This project helps:
+
+- Predict approval chances  
+- Estimate decision timelines  
 
 ---
 
 ## 📊 Dataset Overview
 
-The dataset contains approximately **3.3 million visa application records**.
+- Dataset: H-1B Visa Applications (2011–2018)  
+- Size: ~3.3 Million Records  
 
-It includes:
+### Features:
 
-- Application submission date  
-- Decision date  
-- Case status (Approved / Denied)  
-- Employer details  
-- Job title and classification  
-- Wage information  
-- Work location  
-- Employer dependency information  
-
-This dataset supports both classification and regression modeling.
+- Case Status  
+- Application & Decision Dates  
+- Employer Details  
+- Job Title  
+- Wage Information  
+- Work Location  
 
 ---
 
 ## 📥 Dataset Download
 
-Due to GitHub file size limitations, the full dataset is not uploaded to this repository.
+Dataset is hosted externally due to size limitations.
 
-You can download the full dataset and preprocessed dataset from Google Drive:
-
-🔗 **Dataset Link:**  
+Download here:  
 https://drive.google.com/file/d/1U1mpPKvo7B731-3qr_p9wzB4ft3P4GTg/view?usp=sharing
 
 After downloading:
 
-1. Place the raw dataset (`h1b_data.csv`) inside the `DataSet/` folder.
-2. Or place the cleaned dataset inside:
-   `DataSet/preprocessed_data/`
+- Place raw file in: `DataSet/h1b_data.csv`  
+- Or cleaned file in: `DataSet/preprocessed_data/cleaned_h1b_data.csv`  
 
 ---
 
-## 🔄 Module 1: Data Collection & Preprocessing
+## 🔄 Module 1: Data Preprocessing
 
-In this module, the dataset was cleaned and prepared for model building.
-
-### Steps Performed:
-
-✔ Loaded the raw dataset  
-✔ Removed unnecessary columns  
-✔ Converted date columns into datetime format  
-✔ Removed invalid or corrupted date records  
-✔ Created a new feature: `processing_days`  
-✔ Removed negative and unrealistic processing durations  
-✔ Handled missing values  
-✔ Optimized memory usage  
-✔ Saved the cleaned dataset  
+- Data cleaning  
+- Date conversion  
+- Feature creation (`processing_days`)  
+- Handling missing values  
+- Removing invalid records  
 
 ---
 
-## 🧠 Target Variables
+## 🧠 Machine Learning Tasks
 
-This project prepares data for two machine learning tasks:
+### Classification
+- Target: `case_status`  
+- Output: Approved / Denied  
 
-### 1️⃣ Visa Status Prediction (Classification)
+### Regression
+- Target: `processing_days`  
+- Output: Number of days  
 
-Target column: `case_status`  
-Goal: Predict Approved or Denied  
+---
 
-### 2️⃣ Processing Time Estimation (Regression)
+## 🛠️ Tech Stack
 
-Target column: `processing_days`  
-Goal: Predict number of days between submission and decision  
+- Python  
+- pandas, numpy  
+- scikit-learn  
+- matplotlib, seaborn  
+- Streamlit  
+- Git & GitHub  
 
 ---
 
 ## 📂 Project Structure
 
-AI Enabled Visa Status Prediction and Processing Time Estimator/
+AI-Enabled-Visa-Status-Prediction/
 │
 ├── DataSet/
-│   ├── h1b_data.csv  
+│   ├── h1b_data.csv
 │   └── preprocessed_data/
-│        └── cleaned_h1b_data.csv  
+│       └── cleaned_h1b_data.csv
 │
-├── module1_preprocessing.py  
-├── README.md  
+├── module1_preprocessing.py
+├── Module-2/
+├── Module-3/
+├── Module-4/
+├── app.py
+├── requirements.txt
+├── .gitignore
+├── .gitattributes
+└── README.md
 
 ---
 
-## ▶️ How to Run the Project (Module 1)
+## ⚙️ Setup Instructions
 
-Step 1: Open Terminal and navigate to the project folder
+### Clone repository
 
-```bash
-cd "AI Enabled Visa Status Prediction and Processing Time Estimator"
+git clone https://github.com/your-username/your-repo-name.git  
+cd your-repo-name  
+
+### Create virtual environment
+
+python -m venv venv  
+
+Mac/Linux:
+source venv/bin/activate  
+
+Windows:
+venv\Scripts\activate  
+
+### Install dependencies
+
+pip install -r requirements.txt  
+
+---
+
+## ▶️ Run Project
+
+Run preprocessing:
+
+python module1_preprocessing.py  
+
+Run app:
+
+streamlit run app.py  
+
+Open: http://localhost:8501  
+
+---
+
+## 🚀 Future Work
+
+- Add ML models  
+- Improve accuracy  
+- Deploy on cloud  
+- Enhance UI  
+
+---
+
+## 👩‍💻 Author
+
+Vijayadharshini S  
+B.E CSE | Data Science
+
+---
+
+## ⚠️ Disclaimer
+
+For educational purposes only.
