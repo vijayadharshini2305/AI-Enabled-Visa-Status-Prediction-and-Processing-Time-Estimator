@@ -1,0 +1,7 @@
+* text=auto
+
+# CSV files
+*.csv text eol=lf
+
+# Python files
+*.py text eol=lf
