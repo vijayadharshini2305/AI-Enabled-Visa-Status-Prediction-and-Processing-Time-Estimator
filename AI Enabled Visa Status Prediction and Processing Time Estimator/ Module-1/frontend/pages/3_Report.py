@@ -1,28 +1,33 @@
 import streamlit as st
-from reportlab.platypus import SimpleDocTemplate, Paragraph
-from reportlab.lib.styles import getSampleStyleSheet
-from reportlab.lib.pagesizes import letter
 
 st.title("📄 Download Report")
 
-def generate_pdf():
-    doc = SimpleDocTemplate("h1b_report.pdf", pagesize=letter)
-    styles = getSampleStyleSheet()
+try:
+    from reportlab.platypus import SimpleDocTemplate, Paragraph
+    from reportlab.lib.styles import getSampleStyleSheet
+    from reportlab.lib.pagesizes import letter
 
-    content = []
-    content.append(Paragraph("H1B Visa Analysis Report", styles["Title"]))
-    content.append(Paragraph("Insights and Processing Time Summary", styles["Normal"]))
+    def generate_pdf():
+        doc = SimpleDocTemplate("h1b_report.pdf", pagesize=letter)
+        styles = getSampleStyleSheet()
 
-    doc.build(content)
+        content = []
+        content.append(Paragraph("H1B Visa Analysis Report", styles["Title"]))
+        content.append(Paragraph("Insights and Processing Time Summary", styles["Normal"]))
 
-    with open("h1b_report.pdf", "rb") as f:
-        return f.read()
+        doc.build(content)
 
-if st.button("Generate Report"):
-    pdf = generate_pdf()
-    st.download_button(
-        label="Download PDF",
-        data=pdf,
-        file_name="h1b_report.pdf",
-        mime="application/pdf"
-    )
+        with open("h1b_report.pdf", "rb") as f:
+            return f.read()
+
+    if st.button("Generate Report"):
+        pdf = generate_pdf()
+        st.download_button(
+            label="Download PDF",
+            data=pdf,
+            file_name="h1b_report.pdf",
+            mime="application/pdf"
+        )
+
+except ModuleNotFoundError:
+    st.error("⚠️ Report generation module not installed. Please check requirements.txt")
