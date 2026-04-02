@@ -8,9 +8,16 @@ An end-to-end Machine Learning project that predicts visa approval status and es
 
 This project aims to:
 
-- Predict whether a visa application will be **Approved or Denied**
-- Estimate the **processing time (in days)**
-- Demonstrate real-world application of Machine Learning
+* Predict whether a visa application will be **Approved or Denied**
+* Estimate the **processing time (in days)**
+* Demonstrate real-world application of Machine Learning
+
+---
+
+## 🌐 Live Demo
+
+🚀 **Try the deployed app here:**
+👉 https://vijayadharshini.streamlit.app/
 
 ---
 
@@ -18,24 +25,24 @@ This project aims to:
 
 Visa processing is often uncertain and time-consuming. This project helps:
 
-- Predict approval chances  
-- Estimate decision timelines  
+* Predict approval chances
+* Estimate decision timelines
 
 ---
 
 ## 📊 Dataset Overview
 
-- Dataset: H-1B Visa Applications (2011–2018)  
-- Size: ~3.3 Million Records  
+* Dataset: H-1B Visa Applications (2011–2018)
+* Size: ~3.3 Million Records
 
 ### Features:
 
-- Case Status  
-- Application & Decision Dates  
-- Employer Details  
-- Job Title  
-- Wage Information  
-- Work Location  
+* Case Status
+* Application & Decision Dates
+* Employer Details
+* Job Title
+* Wage Information
+* Work Location
 
 ---
 
@@ -43,46 +50,48 @@ Visa processing is often uncertain and time-consuming. This project helps:
 
 Dataset is hosted externally due to size limitations.
 
-Download here:  
+Download here:
 https://drive.google.com/file/d/1U1mpPKvo7B731-3qr_p9wzB4ft3P4GTg/view?usp=sharing
 
 After downloading:
 
-- Place raw file in: `DataSet/h1b_data.csv`  
-- Or cleaned file in: `DataSet/preprocessed_data/cleaned_h1b_data.csv`  
+* Place raw file in: `DataSet/h1b_data.csv`
+* Or cleaned file in: `DataSet/preprocessed_data/cleaned_h1b_data.csv`
 
 ---
 
 ## 🔄 Module 1: Data Preprocessing
 
-- Data cleaning  
-- Date conversion  
-- Feature creation (`processing_days`)  
-- Handling missing values  
-- Removing invalid records  
+* Data cleaning
+* Date conversion
+* Feature creation (`processing_days`)
+* Handling missing values
+* Removing invalid records
 
 ---
 
 ## 🧠 Machine Learning Tasks
 
 ### Classification
-- Target: `case_status`  
-- Output: Approved / Denied  
+
+* Target: `case_status`
+* Output: Approved / Denied
 
 ### Regression
-- Target: `processing_days`  
-- Output: Number of days  
+
+* Target: `processing_days`
+* Output: Number of days
 
 ---
 
 ## 🛠️ Tech Stack
 
-- Python  
-- pandas, numpy  
-- scikit-learn  
-- matplotlib, seaborn  
-- Streamlit  
-- Git & GitHub  
+* Python
+* pandas, numpy
+* scikit-learn
+* matplotlib, seaborn
+* Streamlit
+* Git & GitHub
 
 ---
 
@@ -95,11 +104,15 @@ AI-Enabled-Visa-Status-Prediction/
 │   └── preprocessed_data/
 │       └── cleaned_h1b_data.csv
 │
+├── frontend/
+│   └── app.py
+│
+├── models/
+│
 ├── module1_preprocessing.py
-├── Module-2/
-├── Module-3/
-├── Module-4/
-├── app.py
+├── module2_eda.py
+├── module3_modeling.py
+├── module4_predict.py
 ├── requirements.txt
 ├── .gitignore
 ├── .gitattributes
@@ -111,22 +124,22 @@ AI-Enabled-Visa-Status-Prediction/
 
 ### Clone repository
 
-git clone https://github.com/your-username/your-repo-name.git  
-cd your-repo-name  
+git clone https://github.com/your-username/your-repo-name.git
+cd your-repo-name
 
 ### Create virtual environment
 
-python -m venv venv  
+python -m venv venv
 
 Mac/Linux:
-source venv/bin/activate  
+source venv/bin/activate
 
 Windows:
-venv\Scripts\activate  
+venv\Scripts\activate
 
 ### Install dependencies
 
-pip install -r requirements.txt  
+pip install -r requirements.txt
 
 ---
 
@@ -134,28 +147,28 @@ pip install -r requirements.txt
 
 Run preprocessing:
 
-python module1_preprocessing.py  
+python module1_preprocessing.py
 
 Run app:
 
-streamlit run app.py  
+streamlit run frontend/app.py
 
-Open: http://localhost:8501  
+Open: http://localhost:8501
 
 ---
 
 ## 🚀 Future Work
 
-- Add ML models  
-- Improve accuracy  
-- Deploy on cloud  
-- Enhance UI  
+* Add more ML models
+* Improve accuracy
+* Enhance UI/UX
+* Add real-time data integration
 
 ---
 
 ## 👩‍💻 Author
 
-Vijayadharshini S  
+**Vijayadharshini S**
 B.E CSE | Data Science
 
 ---
