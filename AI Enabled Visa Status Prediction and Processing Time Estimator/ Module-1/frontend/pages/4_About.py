@@ -16,5 +16,5 @@ This project analyzes H1B visa applications using real-world data.
 To understand visa trends and estimate processing timelines.
 
 ### 👩‍💻 Developed By
-Your Name
+Vijayadharshini S
 """)
